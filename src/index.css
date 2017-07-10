@@ -17,6 +17,10 @@ body {
   border-bottom: 1px solid gray;
 }
 
+.likeText {
+  text-align: center;
+}
+
 .column {
   display: flex;
   flex-direction: column;

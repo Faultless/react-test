@@ -1,42 +1,54 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
+import Vote from './Vote';
+
+const ThreadInfo = (props) => {
+    return (
+        <div className="column">
+            <h3>{props.title}</h3>
+            <div>
+                submitted on {props.publishedDate} by <a href="">{props.author}</a>
+            </div>
+            <div className="smallContent">
+                {props.comments.length} Comments
+            </div>
+        </div>
+    )
+}
+
 class Thread extends Component {
     constructor(props) {
         super(props);
+        this.handleDownvote = this.handleDownvote.bind(this);
+        this.handleUpvote = this.handleUpvote.bind(this);
     }
     handleUpvote (event) {
         event.preventDefault();
 
-        this.props.upvote(this.props.title)
+        this.props.upvote(this.props.title);
     }
 
     handleDownvote (event) {
         event.preventDefault();
         
-        this.props.downvote(this.props.title)
+        this.props.downvote(this.props.title);
     }
     render () {
         return (
             <div className="row thread">
+                <Vote 
+                    likes={this.props.likes}
+                    handleDownvote={this.handleDownvote}
+                    handleUpvote={this.handleUpvote} />
                 <div className="column">
-                    <button className="upvoteBtn" onClick={this.handleUpvote}></button>
-                    <h3>{this.props.likes}</h3>
-                    <button className="downvoteBtn" onClick={this.handleDownvote}></button>
+                    <img src={this.props.imageLink} alt={this.props.title} />
                 </div>
-                <div className="column">
-                    <img src={this.props.link} />
-                </div>
-                <div className="column">
-                    <h3>{this.props.title}</h3>
-                    <div>
-                        submitted on {this.props.publishedDate} by <a href="javascript:;">{this.props.author}</a>
-                    </div>
-                    <div className="smallContent">
-                        {this.props.comments.length} Comments
-                    </div>
-                </div>
-                
+                <ThreadInfo 
+                    title="EG"
+                    publishedDate="7-1-2017"
+                    author="serge"
+                    comments={this.props.comments} />   
             </div>
         )
     }

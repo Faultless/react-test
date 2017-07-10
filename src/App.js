@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Thread from './Thread';
+import threads from './threads.json';
 
 class App extends Component {
   constructor (props) {
@@ -10,9 +10,12 @@ class App extends Component {
     this.state = {
       likes: 0
     };
+
+    this.handleUpvote = this.handleUpvote.bind(this);
+    this.handleDownvote = this.handleDownvote.bind(this);
   }
 
-  upvote () {
+  handleUpvote () {
     this.setState(() => {
       let newLikes = this.state.likes + 1; 
       return {
@@ -21,7 +24,7 @@ class App extends Component {
     })
   }
 
-  downvote () {
+  handleDownvote () {
     this.setState(() => {
       let newLikes = this.state.likes - 1; 
       return {
@@ -31,34 +34,26 @@ class App extends Component {
   }
 
   render() {
-    let title = "EG got TI5'ed";
-    let author = "b2py";
+    console.log(threads);
+    let title = threads[0].title;
+    let author = threads[0].author;
     let likes = this.state.likes;
-    let publishedDate = "7-6-2017";
-    let link = "https://b.thumbs.redditmedia.com/GmiaHqV8AjzHurnccUXiZ0cIQt53hCKup5An2dv0rzI.png";
-    let comments = [
-      {
-        content: "Get fat soon sheever"
-      },
-      {
-        content: "Get fed soon sheever"
-      }
-    ];
+    let publishedDate = threads[0].publishedDate;
+    let imageLink = threads[0].imageLink;
+    let comments = threads[0].comments;
 
     
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <Thread 
+        <Thread
           title={title}
           author={author}
           likes={likes}
           publishedDate={publishedDate}
           comments={comments}
-          link={link} />
+          imageLink={imageLink}
+          upvote={this.handleUpvote}
+          downvote={this.handleDownvote} />
       </div>
     );
   }

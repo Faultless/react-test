@@ -1,0 +1,49 @@
+{
+    "threads": [
+        {
+            "title": "EG",
+            "author": "serge",
+            "likes": 0,
+            "publishedDate" : "10-7-2017",
+            "comments": [
+                {
+                    "content": "Get fat soon sheever"
+                },
+                {
+                    "content": "Get fed soon sheever"
+                }
+            ],
+            "imageLink": "https://b.thumbs.redditmedia.com/GmiaHqV8AjzHurnccUXiZ0cIQt53hCKup5An2dv0rzI.png"
+        },
+        {
+            "title": "Secret",
+            "author": "paul",
+            "likes": 0,
+            "publishedDate" : "10-7-2017",
+            "comments": [
+                {
+                    "content": "Get fat soon sheever"
+                }
+            ],
+            "imageLink": "https://b.thumbs.redditmedia.com/GmiaHqV8AjzHurnccUXiZ0cIQt53hCKup5An2dv0rzI.png"
+        },
+        {
+            "title": "Liquid",
+            "author": "john",
+            "likes": 0,
+            "publishedDate" : "10-7-2017",
+            "comments": [
+                {
+                    "content": "Get fat soon sheever"
+                },
+                {
+                    "content": "Get fed soon sheever"
+                },
+                {
+                    "content": "Get rekt soon sheever"
+                }
+            ],
+            "imageLink": "https://b.thumbs.redditmedia.com/GmiaHqV8AjzHurnccUXiZ0cIQt53hCKup5An2dv0rzI.png"
+        }
+    ]
+}
